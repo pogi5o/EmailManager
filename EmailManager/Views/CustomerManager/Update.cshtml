@@ -1,0 +1,44 @@
+﻿@model Customer
+
+<h2>Update a Customer</h2>
+<h3 class="message">@ViewBag.Message</h3>
+
+<form asp-controller="CustomerManager" asp-action="Update" method="post">
+    <table border="0">
+        <tr>
+            <td class="right">
+                <label asp-for="CustomerNo"></label>
+            </td>
+            <td>
+                <input type="hidden" asp-for="CustomerNo" />
+                <span>@Model.CustomerNo</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="right">
+                <label asp-for="CompanyName"></label>
+            </td>
+            <td>
+                <input type="text" asp-for="CompanyName" />
+                <span asp-validation-for="CompanyName" class="message"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="right">
+                <label asp-for="Emails"></label>
+            </td>
+            <td>
+                <textarea asp-for="Emails" rows="5" cols="40"></textarea>
+                <span asp-validation-for="Emails" class="message"></span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit">Save</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<br />
+<br />
+<a asp-controller="CustomerManager" asp-action="List">Back to Customer Listing</a>

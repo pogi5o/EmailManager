@@ -1,0 +1,38 @@
+﻿@model List<Customer>
+<h2>List of Customers</h2>
+<h2 class="message">@TempData["Message"]</h2>
+
+<a asp-controller="CustomerManager" asp-action="Insert" class="linkbutton">Insert</a>
+
+<br/><br/>
+<table border="1" style="width: 100%">
+    <colgroup>
+        <col span="2" style="width: 15%" />
+        <col span="1" style="width: 15%" />
+        <col span="1" style="width: 15%" />
+        <col span="1" style="width: 25%" />
+    </colgroup>
+    <tbody>
+    <tr>
+        <th colspan="2">Actions</th>
+        <th>Customer No</th>
+        <th>Company Name</th>
+        <th>Distribution List</th>
+    </tr>
+    @foreach(var item in Model) {
+        <tr>
+            <td>
+                <a asp-controller="CustomerManager" asp-action="Update" asp-route-id="@item.CustomerNo"
+                   class="linkbutton">Update</a>
+            </td>
+            <td>
+                <a asp-controller="CustomerManager" asp-action="Delete" asp-route-id="@item.CustomerNo"
+                   class="linkbutton">Delete</a>
+            </td>
+            <td>@item.CustomerNo</td>
+            <td>@item.CompanyName</td>
+            <td>@item.Emails</td>
+        </tr>
+    }
+        </tbody>
+</table>

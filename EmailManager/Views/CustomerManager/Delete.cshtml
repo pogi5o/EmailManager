@@ -1,0 +1,37 @@
+﻿@model Customer
+<h2>Delete a Customer</h2>
+<h3 class="message">
+    Warning: You are about to delete a customer record!
+</h3>
+
+<form asp-controller="CustomerManager" asp-action="Delete" method="post">
+    <input type="hidden" asp-for="CustomerNo" />
+    <table border="0">
+        <tr>
+            <td class="right">
+                <label asp-for="CustomerNo"></label>
+            </td>
+            <td>@Model.CustomerNo</td>
+        </tr>
+        <tr>
+            <td class="right">
+                <label asp-for="CompanyName"></label>
+            </td>
+            <td>@Model.CompanyName</td>
+        </tr>
+        <tr>
+            <td class="right">
+                <label asp-for="Emails"></label>
+            </td>
+            <td>@Model.Emails</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit">Delete</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<br/><br/>
+<a asp-controller="CustomerManager" asp-action="List">Back to Customer Listing</a>
